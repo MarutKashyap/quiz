@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>VIT Entrance Test Quiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="login-section" class="container">
+      <h1 class="text-center">VIT Entrance Test Quiz</h1>
+      <p class="text-center">
+        Please login using your VIT mail ID to attempt the quiz. (Example:
+        yourname@vit.ac.in)
+      </p>
+      <form id="login-form" class="w-100">
+        <div class="mb-3">
+          <label for="email" class="form-label">VIT Email:</label>
+          <input
+            type="email"
+            id="email"
+            class="form-control"
+            placeholder="yourname@vit.ac.in"
+            required
+          />
+        </div>
+        <div id="login-error" class="error mb-3"></div>
+        <button type="submit" class="btn btn-primary w-100">Login</button>
+      </form>
+    </div>
+
+    <div id="quiz-section" class="container" style="display: none">
+      <div id="global-timer" class="timer">Timer: 15:00</div>
+
+      <div id="round1" class="round-section">
+        <h2>Round 1: General Science</h2>
+        <p>(10 Questions | Total Marks: 20)</p>
+        <form id="round1-form"></form>
+        <button class="btn btn-success my-3" onclick="submitRound1()">
+          Submit Round 1
+        </button>
+      </div>
+
+      <div id="round2" class="round-section" style="display: none">
+        <h2>Round 2: General Knowledge</h2>
+        <p>(5 Questions | Total Marks: 10)</p>
+        <form id="round2-form"></form>
+        <button class="btn btn-success my-3" onclick="submitRound2()">
+          Submit Round 2
+        </button>
+      </div>
+
+      <div id="round3" class="round-section" style="display: none">
+        <h2>Round 3: Logo Identification</h2>
+        <p>(5 Logos | Total Marks: 20)</p>
+        <form id="round3-form"></form>
+        <button class="btn btn-success my-3" onclick="submitRound3()">
+          Submit Round 3
+        </button>
+      </div>
+
+      <div id="result-section" style="display: none">
+        <h2 class="text-center">Final Result</h2>
+        <div id="final-score" class="text-center mb-3"></div>
+        <div id="admission-info" class="text-center"></div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      let totalScore = 0;
+      let globalTimerInterval;
+
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const email = document.getElementById("email").value.trim();
+          if (!email.endsWith("@vit.ac.in")) {
+            document.getElementById("login-error").textContent =
+              "Please use a valid VIT mail ID.";
+            return;
+          }
+          document.getElementById("login-error").textContent = "";
+          document.getElementById("login-section").style.display = "none";
+          document.getElementById("quiz-section").style.display = "block";
+          startGlobalTimer("global-timer", 15 * 60, timeoutQuiz);
+        });
+
+      function startGlobalTimer(timerElementId, duration, timeoutCallback) {
+        let timer = duration,
+          minutes,
+          seconds;
+        const display = document.getElementById(timerElementId);
+        globalTimerInterval = setInterval(function () {
+          minutes = parseInt(timer / 60, 10);
+          seconds = parseInt(timer % 60, 10);
+          minutes = minutes < 10 ? "0" + minutes : minutes;
+          seconds = seconds < 10 ? "0" + seconds : seconds;
+          display.textContent = "Timer: " + minutes + ":" + seconds;
+          if (--timer < 0) {
+            clearInterval(globalTimerInterval);
+            timeoutCallback();
+          }
+        }, 1000);
+      }
+
+      function stopGlobalTimer() {
+        clearInterval(globalTimerInterval);
+      }
+
+      function timeoutQuiz() {
+        if (document.getElementById("round1").style.display !== "none") {
+          submitRound1();
+        } else if (document.getElementById("round2").style.display !== "none") {
+          submitRound2();
+        } else if (document.getElementById("round3").style.display !== "none") {
+          submitRound3();
+        }
+      }
+
+      const round1Questions = [
+        {
+          q: "Which of the following elements has the highest electronegativity?",
+          options: ["Oxygen", "Fluorine", "Chlorine", "Nitrogen"],
+          answer: 1,
+        },
+        {
+          q: "What is the approximate age of the universe according to the Big Bang theory?",
+          options: [
+            "4.5 billion years",
+            "13.8 billion years",
+            "100 billion years",
+            "37 billion years",
+          ],
+          answer: 1,
+        },
+        {
+          q: "Which of these is NOT a greenhouse gas?",
+          options: ["Methane", "Carbon Dioxide", "Nitrogen", "Water Vapor"],
+          answer: 2,
+        },
+        {
+          q: "Which particle has approximately the same mass as a proton but no charge?",
+          options: ["Neutron", "Electron", "Positron", "Photon"],
+          answer: 0,
+        },
+        {
+          q: "What is the primary cause of ocean tides on Earth?",
+          options: [
+            "Wind patterns",
+            "Earth's rotation",
+            "Gravitational pull of the moon",
+            "Ocean currents",
+          ],
+          answer: 2,
+        },
+        {
+          q: "Which of these diseases is caused by a prion?",
+          options: [
+            "Malaria",
+            "Influenza",
+            "Creutzfeldt-Jakob disease",
+            "Tuberculosis",
+          ],
+          answer: 2,
+        },
+        {
+          q: "What is the function of mitochondria in a cell?",
+          options: [
+            "Cell division",
+            "Protein synthesis",
+            "Energy production",
+            "Waste removal",
+          ],
+          answer: 2,
+        },
+        {
+          q: "Which physical law states that energy cannot be created or destroyed, only transformed?",
+          options: [
+            "Newton's First Law",
+            "Law of Conservation of Energy",
+            "Bernoulli's Principle",
+            "Archimedes' Principle",
+          ],
+          answer: 1,
+        },
+        {
+          q: "Which of these particles has a negative charge?",
+          options: ["Proton", "Neutron", "Positron", "Electron"],
+          answer: 3,
+        },
+        {
+          q: "What is the pH value of a strong alkaline solution?",
+          options: [
+            "7",
+            "Between 0 and 3",
+            "Between 7 and 8",
+            "Between 12 and 14",
+          ],
+          answer: 3,
+        },
+      ];
+
+      const round2Questions = [
+        {
+          q: "Which country has won the most FIFA World Cup tournaments?",
+          options: ["Germany", "Brazil", "Italy", "Argentina"],
+          answer: 1,
+        },
+        {
+          q: "Who painted 'Guernica'?",
+          options: [
+            "Vincent Van Gogh",
+            "Pablo Picasso",
+            "Salvador Dalí",
+            "Claude Monet",
+          ],
+          answer: 1,
+        },
+        {
+          q: "Which ancient wonder was located in Alexandria?",
+          options: [
+            "The Hanging Gardens",
+            "The Colossus of Rhodes",
+            "The Lighthouse (Pharos)",
+            "The Temple of Artemis",
+          ],
+          answer: 2,
+        },
+        {
+          q: "Which of these novels was NOT written by Jane Austen?",
+          options: [
+            "Pride and Prejudice",
+            "Wuthering Heights",
+            "Emma",
+            "Sense and Sensibility",
+          ],
+          answer: 1,
+        },
+        {
+          q: "In which year did the Chernobyl disaster occur?",
+          options: ["1979", "1986", "1991", "2001"],
+          answer: 1,
+        },
+      ];
+
+      const round3Questions = [
+        {
+          q: "Identify this tech company logo",
+          img: "https://www.nvidia.com/content/dam/en-zz/Solutions/about-nvidia/logo-and-brand/01-nvidia-logo-vert-500x200-2c50-p@2x.png",
+          options: ["Palantir", "Nvidia", "MongoDB", "Salesforce"],
+          answer: 1,
+        },
+        {
+          q: "Identify this automotive logo",
+          img: "https://brandlogos.net/wp-content/uploads/2022/03/maserati_trident_logo-logo-brandlogos.net_.png",
+          options: ["Bentley", "Maserati", "Bugatti", "Koenigsegg"],
+          answer: 1,
+        },
+        {
+          q: "Identify this fashion brand logo",
+          img: "https://i.pinimg.com/736x/96/ea/fa/96eafaedc9df66fe69ab833230d8ab46.jpg",
+          options: ["Balenciaga", "Valentino", "Burberry", "Hermès"],
+          answer: 2,
+        },
+        {
+          q: "Identify this banking/financial institution logo",
+          img: "https://banner2.cleanpng.com/20181108/pux/kisspng-credit-suisse-logo-bank-security-clients-pom-1713924234199.webp",
+          options: [
+            "Deutsche Bank",
+            "Credit Suisse",
+            "Goldman Sachs",
+            "Morgan Stanley",
+          ],
+          answer: 1,
+        },
+        {
+          q: "Identify this aerospace company logo",
+          img: "https://banner2.cleanpng.com/20180624/sfe/aazl9hjhc.webp",
+          options: ["Lockheed Martin", "Northrop Grumman", "Boeing", "Airbus"],
+          answer: 0,
+        },
+      ];
+
+      function generateQuestionsHTML(questionsArray, formId) {
+        let html = "";
+        questionsArray.forEach((qObj, index) => {
+          html += `<div class="question-container">`;
+          html += `<p><strong>Q${index + 1}.</strong> ${qObj.q}</p>`;
+          if (qObj.img) {
+            html += `<img src="${qObj.img}" alt="Logo" class="img-fluid mb-2" style="max-width:150px;">`;
+          }
+          qObj.options.forEach((option, i) => {
+            html += `<div class="form-check">
+                     <input class="form-check-input" type="radio" name="${formId}-q${index}" id="${formId}-q${index}-option${i}" value="${i}">
+                     <label class="form-check-label" for="${formId}-q${index}-option${i}">${option}</label>
+                   </div>`;
+          });
+          html += `<div id="${formId}-q${index}-feedback" class="result"></div>`;
+          html += `</div>`;
+        });
+        return html;
+      }
+
+      document.getElementById("round1-form").innerHTML = generateQuestionsHTML(
+        round1Questions,
+        "round1"
+      );
+      document.getElementById("round2-form").innerHTML = generateQuestionsHTML(
+        round2Questions,
+        "round2"
+      );
+      document.getElementById("round3-form").innerHTML = generateQuestionsHTML(
+        round3Questions,
+        "round3"
+      );
+
+      function checkAnswers(questionsArray, formId) {
+        let roundScore = 0;
+        questionsArray.forEach((qObj, index) => {
+          const selected = document.querySelector(
+            `input[name="${formId}-q${index}"]:checked`
+          );
+          const feedbackEl = document.getElementById(
+            `${formId}-q${index}-feedback`
+          );
+          if (selected) {
+            if (parseInt(selected.value) === qObj.answer) {
+              roundScore++;
+              feedbackEl.textContent = "Correct!";
+              feedbackEl.className = "result correct";
+            } else {
+              feedbackEl.textContent = "Incorrect!";
+              feedbackEl.className = "result incorrect";
+            }
+          } else {
+            feedbackEl.textContent = "No answer selected!";
+            feedbackEl.className = "result incorrect";
+          }
+        });
+        return roundScore;
+      }
+
+      function submitRound1() {
+        
+        const score = checkAnswers(round1Questions, "round1");
+        totalScore += score * 2;
+        document.getElementById("round1").style.display = "none";
+        document.getElementById("round2").style.display = "block";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
+      }
+
+      function submitRound2() {
+        const score = checkAnswers(round2Questions, "round2");
+        totalScore += score * 2;
+        document.getElementById("round2").style.display = "none";
+        document.getElementById("round3").style.display = "block";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
+      }
+
+      function submitRound3() {
+        stopGlobalTimer();
+        const score = checkAnswers(round3Questions, "round3");
+        totalScore += score * 4;
+        document.getElementById("round3").style.display = "none";
+        document.getElementById("result-section").style.display = "block";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        showFinalResult();
+      }
+
+      function showFinalResult() {
+        const normalizedScore = totalScore / 5;
+        document.getElementById(
+          "final-score"
+        ).textContent = `Your Score: ${normalizedScore.toFixed(2)} out of 10`;
+        let admission;
+        if (normalizedScore > 9.5) {
+          admission = "Admitted in Vellore Campus";
+        } else if (normalizedScore > 7.5 && normalizedScore <= 9.4) {
+          admission = "Admitted in Chennai Campus";
+        } else if (normalizedScore > 6.5 && normalizedScore <= 7.4) {
+          admission = "Admitted in Amravati Campus";
+        } else {
+          admission = "Not Admitted";
+        }
+        document.getElementById("admission-info").textContent = admission;
+      }
+    </script>
+  </body>
+</html>
