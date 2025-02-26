@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <round id="round1" name="General Science" questionsCount="10" marksPerQuestion="2">
+    <question>
+      <text>Which of the following elements has the highest electronegativity?</text>
+      <options>
+        <option>Oxygen</option>
+        <option>Fluorine</option>
+        <option>Chlorine</option>
+        <option>Nitrogen</option>
+      </options>
+      <answer>1</answer>
+    </question>
+    <question>
+      <text>What is the approximate age of the universe according to the Big Bang theory?</text>
+      <options>
+        <option>4.5 billion years</option>
+        <option>13.8 billion years</option>
+        <option>100 billion years</option>
+        <option>37 billion years</option>
+      </options>
+      <answer>1</answer>
+    </question>
+    <question>
+      <text>Which of these is NOT a greenhouse gas?</text>
+      <options>
+        <option>Methane</option>
+        <option>Carbon Dioxide</option>
+        <option>Nitrogen</option>
+        <option>Water Vapor</option>
+      </options>
+      <answer>2</answer>
+    </question>
+    <question>
+      <text>Which particle has approximately the same mass as a proton but no charge?</text>
+      <options>
+        <option>Neutron</option>
+        <option>Electron</option>
+        <option>Positron</option>
+        <option>Photon</option>
+      </options>
+      <answer>0</answer>
+    </question>
+    <question>
+      <text>What is the primary cause of ocean tides on Earth?</text>
+      <options>
+        <option>Wind patterns</option>
+        <option>Earth's rotation</option>
+        <option>Gravitational pull of the moon</option>
+        <option>Ocean currents</option>
+      </options>
+      <answer>2</answer>
+    </question>
+    <question>
+      <text>Which of these diseases is caused by a prion?</text>
+      <options>
+        <option>Malaria</option>
+        <option>Influenza</option>
+        <option>Creutzfeldt-Jakob disease</option>
+        <option>Tuberculosis</option>
+      </options>
+      <answer>2</answer>
+    </question>
+    <question>
+      <text>What is the function of mitochondria in a cell?</text>
+      <options>
+        <option>Cell division</option>
+        <option>Protein synthesis</option>
+        <option>Energy production</option>
+        <option>Waste removal</option>
+      </options>
+      <answer>2</answer>
+    </question>
+    <question>
+      <text>Which physical law states that energy cannot be created or destroyed, only transformed?</text>
+      <options>
+        <option>Newton's First Law</option>
+        <option>Law of Conservation of Energy</option>
+        <option>Bernoulli's Principle</option>
+        <option>Archimedes' Principle</option>
+      </options>
+      <answer>1</answer>
+    </question>
+    <question>
+      <text>Which of these particles has a negative charge?</text>
+      <options>
+        <option>Proton</option>
+        <option>Neutron</option>
+        <option>Positron</option>
+        <option>Electron</option>
+      </options>
+      <answer>3</answer>
+    </question>
+    <question>
+      <text>What is the pH value of a strong alkaline solution?</text>
+      <options>
+        <option>7</option>
+        <option>Between 0 and 3</option>
+        <option>Between 7 and 8</option>
+        <option>Between 12 and 14</option>
+      </options>
+      <answer>3</answer>
+    </question>
+  </round>
+  
+  <round id="round2" name="General Knowledge" questionsCount="5" marksPerQuestion="2">
+    <question>
+      <text>Which country has won the most FIFA World Cup tournaments?</text>
+      <options>
+        <option>Germany</option>
+        <option>Brazil</option>
+        <option>Italy</option>
+        <option>Argentina</option>
+      </options>
+      <answer>1</answer>
+    </question>
+    <question>
+      <text>Who painted 'Guernica'?</text>
+      <options>
+        <option>Vincent Van Gogh</option>
+        <option>Pablo Picasso</option>
+        <option>Salvador Dalí</option>
+        <option>Claude Monet</option>
+      </options>
+      <answer>1</answer>
+    </question>
+    <question>
+      <text>Which ancient wonder was located in Alexandria?</text>
+      <options>
+        <option>The Hanging Gardens</option>
+        <option>The Colossus of Rhodes</option>
+        <option>The Lighthouse (Pharos)</option>
+        <option>The Temple of Artemis</option>
+      </options>
+      <answer>2</answer>
+    </question>
+    <question>
+      <text>Which of these novels was NOT written by Jane Austen?</text>
+      <options>
+        <option>Pride and Prejudice</option>
+        <option>Wuthering Heights</option>
+        <option>Emma</option>
+        <option>Sense and Sensibility</option>
+      </options>
+      <answer>1</answer>
+    </question>
+    <question>
+      <text>In which year did the Chernobyl disaster occur?</text>
+      <options>
+        <option>1979</option>
+        <option>1986</option>
+        <option>1991</option>
+        <option>2001</option>
+      </options>
+      <answer>1</answer>
+    </question>
+  </round>
+  
+  <round id="round3" name="Logo Identification" questionsCount="5" marksPerQuestion="4">
+    <question>
+      <text>Identify this tech company logo</text>
+      <image>https://www.nvidia.com/content/dam/en-zz/Solutions/about-nvidia/logo-and-brand/01-nvidia-logo-vert-500x200-2c50-p@2x.png</image>
+      <options>
+        <option>Palantir</option>
+        <option>Nvidia</option>
+        <option>MongoDB</option>
+        <option>Salesforce</option>
+      </options>
+      <answer>1</answer>
+    </question>
+    <question>
+      <text>Identify this automotive logo</text>
+      <image>https://brandlogos.net/wp-content/uploads/2022/03/maserati_trident_logo-logo-brandlogos.net_.png</image>
+      <options>
+        <option>Bentley</option>
+        <option>Maserati</option>
+        <option>Bugatti</option>
+        <option>Koenigsegg</option>
+      </options>
+      <answer>1</answer>
+    </question>
+    <question>
+      <text>Identify this fashion brand logo</text>
+      <image>https://i.pinimg.com/736x/96/ea/fa/96eafaedc9df66fe69ab833230d8ab46.jpg</image>
+      <options>
+        <option>Balenciaga</option>
+        <option>Valentino</option>
+        <option>Burberry</option>
+        <option>Hermès</option>
+      </options>
+      <answer>2</answer>
+    </question>
+    <question>
+      <text>Identify this banking/financial institution logo</text>
+      <image>https://banner2.cleanpng.com/20181108/pux/kisspng-credit-suisse-logo-bank-security-clients-pom-1713924234199.webp</image>
+      <options>
+        <option>Deutsche Bank</option>
+        <option>Credit Suisse</option>
+        <option>Goldman Sachs</option>
+        <option>Morgan Stanley</option>
+      </options>
+      <answer>1</answer>
+    </question>
+    <question>
+      <text>Identify this aerospace company logo</text>
+      <image>https://banner2.cleanpng.com/20180624/sfe/aazl9hjhc.webp</image>
+      <options>
+        <option>Lockheed Martin</option>
+        <option>Northrop Grumman</option>
+        <option>Boeing</option>
+        <option>Airbus</option>
+      </options>
+      <answer>0</answer>
+    </question>
+  </round>
+</quiz>
